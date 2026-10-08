@@ -1,0 +1,56 @@
+[
+{
+  "directory": "/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build",
+  "command": "/usr/bin/c++  -I/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/include -isystem /usr/include/opencv4 -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/laboratorio_PDI.dir/src/main.cpp.o -c /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/main.cpp",
+  "file": "/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/main.cpp",
+  "output": "CMakeFiles/laboratorio_PDI.dir/src/main.cpp.o"
+},
+{
+  "directory": "/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build",
+  "command": "/usr/bin/c++  -I/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/include -isystem /usr/include/opencv4 -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/laboratorio_PDI.dir/src/image_io.cpp.o -c /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/image_io.cpp",
+  "file": "/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/image_io.cpp",
+  "output": "CMakeFiles/laboratorio_PDI.dir/src/image_io.cpp.o"
+},
+{
+  "directory": "/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build",
+  "command": "/usr/bin/c++  -I/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/include -isystem /usr/include/opencv4 -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/laboratorio_PDI.dir/src/intensity.cpp.o -c /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/intensity.cpp",
+  "file": "/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/intensity.cpp",
+  "output": "CMakeFiles/laboratorio_PDI.dir/src/intensity.cpp.o"
+},
+{
+  "directory": "/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build",
+  "command": "/usr/bin/c++  -I/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/include -isystem /usr/include/opencv4 -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/laboratorio_PDI.dir/src/histogram.cpp.o -c /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/histogram.cpp",
+  "file": "/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/histogram.cpp",
+  "output": "CMakeFiles/laboratorio_PDI.dir/src/histogram.cpp.o"
+},
+{
+  "directory": "/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build",
+  "command": "/usr/bin/c++  -I/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/include -isystem /usr/include/opencv4 -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/laboratorio_PDI.dir/src/convolution.cpp.o -c /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/convolution.cpp",
+  "file": "/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/convolution.cpp",
+  "output": "CMakeFiles/laboratorio_PDI.dir/src/convolution.cpp.o"
+},
+{
+  "directory": "/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build",
+  "command": "/usr/bin/c++  -I/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/include -isystem /usr/include/opencv4 -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/laboratorio_PDI.dir/src/spatial_filters.cpp.o -c /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/spatial_filters.cpp",
+  "file": "/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/spatial_filters.cpp",
+  "output": "CMakeFiles/laboratorio_PDI.dir/src/spatial_filters.cpp.o"
+},
+{
+  "directory": "/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build",
+  "command": "/usr/bin/c++  -I/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/include -isystem /usr/include/opencv4 -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/laboratorio_PDI.dir/src/edge_detection.cpp.o -c /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/edge_detection.cpp",
+  "file": "/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/edge_detection.cpp",
+  "output": "CMakeFiles/laboratorio_PDI.dir/src/edge_detection.cpp.o"
+},
+{
+  "directory": "/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build",
+  "command": "/usr/bin/c++  -I/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/include -isystem /usr/include/opencv4 -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/laboratorio_PDI.dir/src/sharpening.cpp.o -c /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/sharpening.cpp",
+  "file": "/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/sharpening.cpp",
+  "output": "CMakeFiles/laboratorio_PDI.dir/src/sharpening.cpp.o"
+},
+{
+  "directory": "/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build",
+  "command": "/usr/bin/c++  -I/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/include -isystem /usr/include/opencv4 -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/laboratorio_PDI.dir/src/dissolve.cpp.o -c /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/dissolve.cpp",
+  "file": "/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/dissolve.cpp",
+  "output": "CMakeFiles/laboratorio_PDI.dir/src/dissolve.cpp.o"
+}
+]

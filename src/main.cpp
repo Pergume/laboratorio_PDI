@@ -4,7 +4,7 @@
 #include <iostream>
 
 namespace {
-constexpr const char* INPUT_PATH = "assets/input/input.png";
+constexpr const char* INPUT_PATH = "assets/input/lena_color.tif";
 constexpr const char* OUTPUT_PATH = "assets/output/copia_entrada.png";
 }
 

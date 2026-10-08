@@ -1,0 +1,3 @@
+/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build/CMakeFiles/laboratorio_PDI.dir
+/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build/CMakeFiles/edit_cache.dir
+/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build/CMakeFiles/rebuild_cache.dir
