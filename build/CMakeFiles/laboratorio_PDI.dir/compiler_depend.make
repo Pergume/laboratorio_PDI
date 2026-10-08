@@ -1904,6 +1904,7 @@ CMakeFiles/laboratorio_PDI.dir/src/intensity.cpp.o: /home/pedro/Documentos/codig
 
 CMakeFiles/laboratorio_PDI.dir/src/main.cpp.o: /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/main.cpp \
   /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/include/image_io.hpp \
+  /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/include/intensity.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
