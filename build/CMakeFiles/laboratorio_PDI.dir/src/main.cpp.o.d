@@ -1,10 +1,9 @@
 CMakeFiles/laboratorio_PDI.dir/src/main.cpp.o: \
  /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/main.cpp \
  /usr/include/stdc-predef.h \
- /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/include/image_io.hpp \
- /usr/include/opencv4/opencv2/core.hpp \
- /usr/include/opencv4/opencv2/core/cvdef.h \
- /usr/include/opencv4/opencv2/core/version.hpp /usr/include/c++/13/limits \
+ /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/include/histogram.hpp \
+ /usr/include/c++/13/array /usr/include/c++/13/compare \
+ /usr/include/c++/13/initializer_list \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -15,7 +14,26 @@ CMakeFiles/laboratorio_PDI.dir/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
- /usr/include/c++/13/pstl/pstl_config.h \
+ /usr/include/c++/13/pstl/pstl_config.h /usr/include/c++/13/type_traits \
+ /usr/include/c++/13/bits/functexcept.h \
+ /usr/include/c++/13/bits/exception_defines.h \
+ /usr/include/c++/13/bits/stl_algobase.h \
+ /usr/include/c++/13/bits/cpp_type_traits.h \
+ /usr/include/c++/13/ext/type_traits.h \
+ /usr/include/c++/13/ext/numeric_traits.h \
+ /usr/include/c++/13/bits/stl_pair.h /usr/include/c++/13/bits/move.h \
+ /usr/include/c++/13/bits/utility.h \
+ /usr/include/c++/13/bits/stl_iterator_base_types.h \
+ /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
+ /usr/include/c++/13/bits/concept_check.h \
+ /usr/include/c++/13/debug/assertions.h \
+ /usr/include/c++/13/bits/stl_iterator.h \
+ /usr/include/c++/13/bits/ptr_traits.h /usr/include/c++/13/debug/debug.h \
+ /usr/include/c++/13/bits/predefined_ops.h /usr/include/c++/13/bit \
+ /usr/include/c++/13/bits/range_access.h \
+ /usr/include/opencv4/opencv2/core.hpp \
+ /usr/include/opencv4/opencv2/core/cvdef.h \
+ /usr/include/opencv4/opencv2/core/version.hpp /usr/include/c++/13/limits \
  /usr/include/opencv4/opencv2/core/hal/interface.h \
  /usr/include/c++/13/cstddef \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
@@ -63,24 +81,7 @@ CMakeFiles/laboratorio_PDI.dir/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
- /usr/include/c++/13/bits/std_abs.h /usr/include/c++/13/array \
- /usr/include/c++/13/compare /usr/include/c++/13/initializer_list \
- /usr/include/c++/13/type_traits /usr/include/c++/13/bits/functexcept.h \
- /usr/include/c++/13/bits/exception_defines.h \
- /usr/include/c++/13/bits/stl_algobase.h \
- /usr/include/c++/13/bits/cpp_type_traits.h \
- /usr/include/c++/13/ext/type_traits.h \
- /usr/include/c++/13/ext/numeric_traits.h \
- /usr/include/c++/13/bits/stl_pair.h /usr/include/c++/13/bits/move.h \
- /usr/include/c++/13/bits/utility.h \
- /usr/include/c++/13/bits/stl_iterator_base_types.h \
- /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
- /usr/include/c++/13/bits/concept_check.h \
- /usr/include/c++/13/debug/assertions.h \
- /usr/include/c++/13/bits/stl_iterator.h \
- /usr/include/c++/13/bits/ptr_traits.h /usr/include/c++/13/debug/debug.h \
- /usr/include/c++/13/bits/predefined_ops.h /usr/include/c++/13/bit \
- /usr/include/c++/13/bits/range_access.h \
+ /usr/include/c++/13/bits/std_abs.h \
  /usr/include/opencv4/opencv2/core/base.hpp \
  /usr/include/opencv4/opencv2/opencv_modules.hpp \
  /usr/include/c++/13/climits \
@@ -259,5 +260,6 @@ CMakeFiles/laboratorio_PDI.dir/src/main.cpp.o: \
  /usr/include/opencv4/opencv2/core/optim.hpp \
  /usr/include/opencv4/opencv2/core/ovx.hpp \
  /usr/include/opencv4/opencv2/core/cvdef.h \
+ /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/include/image_io.hpp \
  /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/include/intensity.hpp \
  /usr/include/c++/13/iostream
