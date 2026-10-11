@@ -1903,8 +1903,11 @@ CMakeFiles/laboratorio_PDI.dir/src/intensity.cpp.o: /home/pedro/Documentos/codig
   /usr/lib/gcc/x86_64-linux-gnu/13/include/xmmintrin.h
 
 CMakeFiles/laboratorio_PDI.dir/src/main.cpp.o: /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/main.cpp \
+  /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/include/convolution.hpp \
+  /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/include/histogram.hpp \
   /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/include/image_io.hpp \
   /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/include/intensity.hpp \
+  /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/include/spatial_filters.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -2848,11 +2851,11 @@ CMakeFiles/laboratorio_PDI.dir/src/spatial_filters.cpp.o: /home/pedro/Documentos
   /usr/lib/gcc/x86_64-linux-gnu/13/include/xmmintrin.h
 
 
-/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/include/spatial_filters.hpp:
-
 /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/spatial_filters.cpp:
 
 /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/include/sharpening.hpp:
+
+/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/include/spatial_filters.hpp:
 
 /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/intensity.cpp:
 

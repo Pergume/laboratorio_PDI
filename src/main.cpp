@@ -1,13 +1,14 @@
 #include "histogram.hpp"
 #include "image_io.hpp"
 #include "intensity.hpp"
+#include "spatial_filters.hpp"
 
 #include <exception>
 #include <iostream>
 #include <string>
 
 namespace {
-constexpr const char* INPUT_PATH = "assets/input/input.png";
+constexpr const char* INPUT_PATH = "assets/input/input.tif";
 constexpr const char* OUTPUT_DIRECTORY = "assets/output/";
 
 constexpr unsigned char THRESHOLD_VALUE = 128;
@@ -19,6 +20,9 @@ constexpr unsigned char CONTRAST_MAX = 190;
 
 constexpr double ADAPTIVE_CONTRAST_C = 1.5;
 constexpr int ADAPTIVE_NEIGHBORHOOD_SIZE = 3;
+
+constexpr int MEAN_NEIGHBORHOOD_SIZE = 3;
+constexpr int MEDIAN_NEIGHBORHOOD_SIZE = 3;
 }
 
 int main() {
@@ -84,6 +88,25 @@ int main() {
             adaptiveContrastImage
         );
 
+        // Filtragem espacial.
+        const cv::Mat meanImage = pdi::meanFilter(
+            image,
+            MEAN_NEIGHBORHOOD_SIZE
+        );
+        const cv::Mat medianImage = pdi::medianFilter(
+            image,
+            MEDIAN_NEIGHBORHOOD_SIZE
+        );
+
+        pdi::saveImage(
+            std::string(OUTPUT_DIRECTORY) + "09_filtro_media.png",
+            meanImage
+        );
+        pdi::saveImage(
+            std::string(OUTPUT_DIRECTORY) + "10_filtro_mediana.png",
+            medianImage
+        );
+
         unsigned long long histogramPixelCount = 0;
         for (const unsigned long long count : originalHistogram) {
             histogramPixelCount += count;
@@ -112,6 +135,14 @@ int main() {
                   << ", vizinhanca = "
                   << ADAPTIVE_NEIGHBORHOOD_SIZE << "x"
                   << ADAPTIVE_NEIGHBORHOOD_SIZE << ")\n\n";
+
+        std::cout << "Filtragem espacial concluida.\n";
+        std::cout << "  09_filtro_media.png (vizinhanca = "
+                  << MEAN_NEIGHBORHOOD_SIZE << "x"
+                  << MEAN_NEIGHBORHOOD_SIZE << ")\n";
+        std::cout << "  10_filtro_mediana.png (vizinhanca = "
+                  << MEDIAN_NEIGHBORHOOD_SIZE << "x"
+                  << MEDIAN_NEIGHBORHOOD_SIZE << ")\n\n";
 
         std::cout << "Resultados salvos em: " << OUTPUT_DIRECTORY << "\n";
 
