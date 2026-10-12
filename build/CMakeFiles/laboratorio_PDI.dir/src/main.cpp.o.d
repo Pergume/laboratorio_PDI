@@ -259,8 +259,10 @@ CMakeFiles/laboratorio_PDI.dir/src/main.cpp.o: \
  /usr/include/opencv4/opencv2/core/optim.hpp \
  /usr/include/opencv4/opencv2/core/ovx.hpp \
  /usr/include/opencv4/opencv2/core/cvdef.h \
+ /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/include/edge_detection.hpp \
  /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/include/histogram.hpp \
  /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/include/image_io.hpp \
  /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/include/intensity.hpp \
  /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/include/spatial_filters.hpp \
+ /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/include/sharpening.hpp \
  /usr/include/c++/13/iostream

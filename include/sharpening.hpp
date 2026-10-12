@@ -10,6 +10,11 @@ struct LaplacianSharpenResult {
 };
 
 LaplacianSharpenResult laplacianSharpen(const cv::Mat& image);
-cv::Mat highBoost(const cv::Mat& image, double k, int neighborhoodSize);
 
-} // namespace pdi
+cv::Mat highBoost(
+    const cv::Mat& image,
+    double k,
+    int neighborhoodSize
+);
+
+} 

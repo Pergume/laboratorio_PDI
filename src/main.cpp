@@ -1,8 +1,10 @@
 #include "convolution.hpp"
+#include "edge_detection.hpp"
 #include "histogram.hpp"
 #include "image_io.hpp"
 #include "intensity.hpp"
 #include "spatial_filters.hpp"
+#include "sharpening.hpp"
 
 #include <exception>
 #include <iostream>
@@ -25,7 +27,10 @@ constexpr int ADAPTIVE_NEIGHBORHOOD_SIZE = 3;
 constexpr int MEAN_NEIGHBORHOOD_SIZE = 3;
 constexpr int MEDIAN_NEIGHBORHOOD_SIZE = 3;
 
-constexpr double CONVOLUTION_OFFSET = 128.0;
+constexpr double CONVOLUTION_OFFSET = 0.0;
+
+constexpr double HIGH_BOOST_K = 1.5;
+constexpr int HIGH_BOOST_NEIGHBORHOOD_SIZE = 3;
 }
 
 int main() {
@@ -126,12 +131,91 @@ int main() {
             image,
             convolutionKernel,
             CONVOLUTION_OFFSET,
-            pdi::BorderMode::ZeroPadding
+            pdi::BorderMode::Replicate
         );
 
         pdi::saveImage(
             std::string(OUTPUT_DIRECTORY) + "11_convolucao_generica.png",
             convolutionImage
+        );
+
+        // Deteccao de bordas: Roberts e Sobel.
+        const pdi::GradientResult robertsResult = pdi::roberts(image);
+        const pdi::GradientResult sobelResult = pdi::sobel(image);
+
+        pdi::saveImage(
+            std::string(OUTPUT_DIRECTORY) + "12_roberts_gx.png",
+            robertsResult.gx
+        );
+        pdi::saveImage(
+            std::string(OUTPUT_DIRECTORY) + "13_roberts_gy.png",
+            robertsResult.gy
+        );
+        pdi::saveImage(
+            std::string(OUTPUT_DIRECTORY) + "14_roberts_magnitude.png",
+            robertsResult.magnitude
+        );
+
+        pdi::saveImage(
+            std::string(OUTPUT_DIRECTORY) + "15_sobel_gx.png",
+            sobelResult.gx
+        );
+        pdi::saveImage(
+            std::string(OUTPUT_DIRECTORY) + "16_sobel_gy.png",
+            sobelResult.gy
+        );
+        pdi::saveImage(
+            std::string(OUTPUT_DIRECTORY) + "17_sobel_magnitude.png",
+            sobelResult.magnitude
+        );
+
+        // Deteccao de bordas: Kirsch e Laplaciano.
+        const pdi::KirschResult kirschResult = pdi::kirsch(image);
+        const cv::Mat laplacianImage = pdi::laplacian(image);
+
+        for (int direction = 0; direction < 8; ++direction) {
+            const std::string filename =
+                std::string(OUTPUT_DIRECTORY) +
+                "18_kirsch_mascara_" +
+                std::to_string(direction + 1) +
+                ".png";
+
+            pdi::saveImage(filename, kirschResult.responses[direction]);
+        }
+
+        pdi::saveImage(
+            std::string(OUTPUT_DIRECTORY) + "26_kirsch_resposta_final.png",
+            kirschResult.finalResponse
+        );
+
+        pdi::saveImage(
+            std::string(OUTPUT_DIRECTORY) + "27_laplaciano.png",
+            laplacianImage
+        );
+
+        // Agucamento: Laplaciano e High Boost.
+        const pdi::LaplacianSharpenResult laplacianSharpenResult =
+            pdi::laplacianSharpen(image);
+
+        const cv::Mat highBoostImage = pdi::highBoost(
+            image,
+            HIGH_BOOST_K,
+            HIGH_BOOST_NEIGHBORHOOD_SIZE
+        );
+
+        pdi::saveImage(
+            std::string(OUTPUT_DIRECTORY) + "28_laplaciano_resposta_agucamento.png",
+            laplacianSharpenResult.laplacianResponse
+        );
+
+        pdi::saveImage(
+            std::string(OUTPUT_DIRECTORY) + "29_agucamento_laplaciano.png",
+            laplacianSharpenResult.sharpenedImage
+        );
+
+        pdi::saveImage(
+            std::string(OUTPUT_DIRECTORY) + "30_high_boost.png",
+            highBoostImage
         );
 
         unsigned long long histogramPixelCount = 0;
@@ -176,6 +260,25 @@ int main() {
         std::cout << "  Mascara: 3x3 de agucamento\n";
         std::cout << "  Offset: " << CONVOLUTION_OFFSET << "\n";
         std::cout << "  Borda: Replicate\n\n";
+
+        std::cout << "Deteccao de bordas concluida.\n";
+        std::cout << "  Roberts: Gx, Gy e magnitude -> arquivos 12 a 14\n";
+        std::cout << "  Sobel:   Gx, Gy e magnitude -> arquivos 15 a 17\n";
+        std::cout << "  Borda utilizada: Replicate\n\n";
+
+        std::cout << "Kirsch e Laplaciano concluidos.\n";
+        std::cout << "  Kirsch: respostas das 8 mascaras -> arquivos 18 a 25\n";
+        std::cout << "  Kirsch: resposta final por maximo -> arquivo 26\n";
+        std::cout << "  Laplaciano 4-vizinhos -> arquivo 27\n";
+        std::cout << "  Borda utilizada: Replicate\n\n";
+
+        std::cout << "Agucamento concluido.\n";
+        std::cout << "  28_laplaciano_resposta_agucamento.png\n";
+        std::cout << "  29_agucamento_laplaciano.png\n";
+        std::cout << "  30_high_boost.png (k = " << HIGH_BOOST_K
+                  << ", vizinhanca = "
+                  << HIGH_BOOST_NEIGHBORHOOD_SIZE << "x"
+                  << HIGH_BOOST_NEIGHBORHOOD_SIZE << ")\n\n";
 
         std::cout << "Resultados salvos em: " << OUTPUT_DIRECTORY << "\n";
 
