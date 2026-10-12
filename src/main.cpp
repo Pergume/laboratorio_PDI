@@ -1,4 +1,5 @@
 #include "convolution.hpp"
+#include "dissolve.hpp"
 #include "edge_detection.hpp"
 #include "histogram.hpp"
 #include "image_io.hpp"
@@ -12,6 +13,7 @@
 
 namespace {
 constexpr const char* INPUT_PATH = "assets/input/input.tif";
+constexpr const char* INPUT_B_PATH = "assets/input/barbara.tif";
 constexpr const char* OUTPUT_DIRECTORY = "assets/output/";
 
 constexpr unsigned char THRESHOLD_VALUE = 128;
@@ -31,15 +33,20 @@ constexpr double CONVOLUTION_OFFSET = 0.0;
 
 constexpr double HIGH_BOOST_K = 1.5;
 constexpr int HIGH_BOOST_NEIGHBORHOOD_SIZE = 3;
+
+constexpr double UNIFORM_DISSOLVE_ALPHA = 0.5;
 }
 
 int main() {
     try {
         const cv::Mat image = pdi::loadGrayscale8Bit(INPUT_PATH);
+        const cv::Mat imageB = pdi::loadGrayscale8Bit(INPUT_B_PATH);
 
-        std::cout << "Imagem carregada com sucesso.\n";
+        std::cout << "Imagem A carregada com sucesso.\n";
         std::cout << "Resolucao: " << image.cols << " x " << image.rows << "\n";
-        std::cout << "Formato: escala de cinza, 8 bits.\n\n";
+        std::cout << "Formato: escala de cinza, 8 bits.\n";
+        std::cout << "Imagem B carregada: " << imageB.cols << " x "
+                  << imageB.rows << "\n\n";
 
         // Transformacoes de intensidade.
         const cv::Mat negativeImage = pdi::negative(image);
@@ -218,6 +225,44 @@ int main() {
             highBoostImage
         );
 
+        // Operacoes algebricas: dissolve uniforme e nao uniforme.
+        const cv::Mat uniformDissolveImage = pdi::uniformDissolve(
+            image,
+            imageB,
+            UNIFORM_DISSOLVE_ALPHA
+        );
+
+        cv::Mat weightMap(image.rows, image.cols, CV_64FC1);
+        for (int row = 0; row < weightMap.rows; ++row) {
+            double* weightRow = weightMap.ptr<double>(row);
+
+            for (int col = 0; col < weightMap.cols; ++col) {
+                if (weightMap.cols == 1) {
+                    weightRow[col] = 0.0;
+                } else {
+                    weightRow[col] =
+                        static_cast<double>(col) /
+                        static_cast<double>(weightMap.cols - 1);
+                }
+            }
+        }
+
+        const cv::Mat nonUniformDissolveImage = pdi::nonUniformDissolve(
+            image,
+            imageB,
+            weightMap
+        );
+
+        pdi::saveImage(
+            std::string(OUTPUT_DIRECTORY) + "31_dissolve_uniforme.png",
+            uniformDissolveImage
+        );
+
+        pdi::saveImage(
+            std::string(OUTPUT_DIRECTORY) + "32_dissolve_nao_uniforme.png",
+            nonUniformDissolveImage
+        );
+
         unsigned long long histogramPixelCount = 0;
         for (const unsigned long long count : originalHistogram) {
             histogramPixelCount += count;
@@ -279,6 +324,12 @@ int main() {
                   << ", vizinhanca = "
                   << HIGH_BOOST_NEIGHBORHOOD_SIZE << "x"
                   << HIGH_BOOST_NEIGHBORHOOD_SIZE << ")\n\n";
+
+        std::cout << "Dissolve concluido.\n";
+        std::cout << "  31_dissolve_uniforme.png (alpha = "
+                  << UNIFORM_DISSOLVE_ALPHA << ")\n";
+        std::cout << "  32_dissolve_nao_uniforme.png "
+                  << "(peso horizontal de 0 a 1)\n\n";
 
         std::cout << "Resultados salvos em: " << OUTPUT_DIRECTORY << "\n";
 
