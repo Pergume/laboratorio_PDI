@@ -2536,7 +2536,6 @@ CMakeFiles/laboratorio_PDI.dir/src/sharpening.cpp.o: /home/pedro/Documentos/codi
   /usr/lib/gcc/x86_64-linux-gnu/13/include/xmmintrin.h
 
 CMakeFiles/laboratorio_PDI.dir/src/spatial_filters.cpp.o: /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/spatial_filters.cpp \
-  /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/include/convolution.hpp \
   /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/include/spatial_filters.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \

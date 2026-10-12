@@ -1,3 +1,4 @@
+#include "convolution.hpp"
 #include "histogram.hpp"
 #include "image_io.hpp"
 #include "intensity.hpp"
@@ -23,6 +24,8 @@ constexpr int ADAPTIVE_NEIGHBORHOOD_SIZE = 3;
 
 constexpr int MEAN_NEIGHBORHOOD_SIZE = 3;
 constexpr int MEDIAN_NEIGHBORHOOD_SIZE = 3;
+
+constexpr double CONVOLUTION_OFFSET = 128.0;
 }
 
 int main() {
@@ -107,6 +110,30 @@ int main() {
             medianImage
         );
 
+        // Convolucao generica.
+        cv::Mat convolutionKernel(3, 3, CV_64FC1);
+        convolutionKernel.ptr<double>(0)[0] = -1.0;
+        convolutionKernel.ptr<double>(0)[1] = -1.0;
+        convolutionKernel.ptr<double>(0)[2] = -1.0;
+        convolutionKernel.ptr<double>(1)[0] = -1.0;
+        convolutionKernel.ptr<double>(1)[1] =  9.0;
+        convolutionKernel.ptr<double>(1)[2] = -1.0;
+        convolutionKernel.ptr<double>(2)[0] = -1.0;
+        convolutionKernel.ptr<double>(2)[1] = -1.0;
+        convolutionKernel.ptr<double>(2)[2] = -1.0;
+
+        const cv::Mat convolutionImage = pdi::convolve(
+            image,
+            convolutionKernel,
+            CONVOLUTION_OFFSET,
+            pdi::BorderMode::ZeroPadding
+        );
+
+        pdi::saveImage(
+            std::string(OUTPUT_DIRECTORY) + "11_convolucao_generica.png",
+            convolutionImage
+        );
+
         unsigned long long histogramPixelCount = 0;
         for (const unsigned long long count : originalHistogram) {
             histogramPixelCount += count;
@@ -143,6 +170,12 @@ int main() {
         std::cout << "  10_filtro_mediana.png (vizinhanca = "
                   << MEDIAN_NEIGHBORHOOD_SIZE << "x"
                   << MEDIAN_NEIGHBORHOOD_SIZE << ")\n\n";
+
+        std::cout << "Convolucao generica concluida.\n";
+        std::cout << "  11_convolucao_generica.png\n";
+        std::cout << "  Mascara: 3x3 de agucamento\n";
+        std::cout << "  Offset: " << CONVOLUTION_OFFSET << "\n";
+        std::cout << "  Borda: Replicate\n\n";
 
         std::cout << "Resultados salvos em: " << OUTPUT_DIRECTORY << "\n";
 
