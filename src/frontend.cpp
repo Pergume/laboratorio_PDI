@@ -26,6 +26,7 @@
 namespace {
 
 constexpr const char* WINDOW_NAME = "Laboratorio PDI";
+constexpr const char* PARAMETERS_WINDOW_NAME = "Parametros - Laboratorio PDI";
 constexpr int CANVAS_WIDTH = 1500;
 constexpr int CANVAS_HEIGHT = 800;
 constexpr int PANEL_WIDTH = 380;
@@ -430,7 +431,7 @@ std::string selectedStem(const AppState& state) {
 
 int neighborhoodFromTrackbar() {
     static const std::array<int, 5> values{1, 3, 5, 7, 9};
-    int index = cv::getTrackbarPos("Vizinhanca", WINDOW_NAME);
+    int index = cv::getTrackbarPos("Vizinhanca", PARAMETERS_WINDOW_NAME);
     index = std::clamp(index, 0, static_cast<int>(values.size()) - 1);
     return values[static_cast<std::size_t>(index)];
 }
@@ -499,14 +500,14 @@ pdi::MandatoryConvolutionTest testFromOperation(Operation op) {
 }
 
 cv::Mat executeOperation(AppState& state, Operation op, std::string& details) {
-    const int thresholdValue = cv::getTrackbarPos("Limiar", WINDOW_NAME);
-    const double gamma = std::max(1, cv::getTrackbarPos("Gamma x100", WINDOW_NAME)) / 100.0;
-    const int contrastMin = cv::getTrackbarPos("Contraste min", WINDOW_NAME);
-    const int contrastMax = cv::getTrackbarPos("Contraste max", WINDOW_NAME);
-    const double adaptiveC = cv::getTrackbarPos("Contraste C x10", WINDOW_NAME) / 10.0;
+    const int thresholdValue = cv::getTrackbarPos("Limiar", PARAMETERS_WINDOW_NAME);
+    const double gamma = std::max(1, cv::getTrackbarPos("Gamma x100", PARAMETERS_WINDOW_NAME)) / 100.0;
+    const int contrastMin = cv::getTrackbarPos("Contraste min", PARAMETERS_WINDOW_NAME);
+    const int contrastMax = cv::getTrackbarPos("Contraste max", PARAMETERS_WINDOW_NAME);
+    const double adaptiveC = cv::getTrackbarPos("Contraste C x10", PARAMETERS_WINDOW_NAME) / 10.0;
     const int neighborhood = neighborhoodFromTrackbar();
-    const double highBoostK = cv::getTrackbarPos("HighBoost K x10", WINDOW_NAME) / 10.0;
-    const double alpha = cv::getTrackbarPos("Dissolve alpha %", WINDOW_NAME) / 100.0;
+    const double highBoostK = cv::getTrackbarPos("HighBoost K x10", PARAMETERS_WINDOW_NAME) / 10.0;
+    const double alpha = cv::getTrackbarPos("Dissolve alpha %", PARAMETERS_WINDOW_NAME) / 100.0;
 
     switch (op) {
         case Operation::Negative:
@@ -698,7 +699,7 @@ constexpr std::array<TrackbarParameter, 8> TRACKBAR_PARAMETERS{{
 
 void resetParameters() {
     for (const auto& parameter : TRACKBAR_PARAMETERS) {
-        cv::setTrackbarPos(parameter.name, WINDOW_NAME, parameter.defaultValue);
+        cv::setTrackbarPos(parameter.name, PARAMETERS_WINDOW_NAME, parameter.defaultValue);
     }
 }
 
@@ -856,7 +857,7 @@ void render(AppState& state) {
         ButtonAction::ResetParameters
     );
 
-    drawText(canvas, "Parametros (sliders no topo da janela)", cv::Point(410, 625), 0.55, ACCENT, 1);
+    drawText(canvas, "Parametros (janela separada)", cv::Point(410, 625), 0.55, ACCENT, 1);
     drawText(
         canvas,
         "Vizinhanca usa: 1, 3, 5, 7 ou 9. Resultados sao salvos automaticamente.",
@@ -928,10 +929,16 @@ void handleMouse(int event, int x, int y, int, void* userdata) {
 }
 
 void createTrackbars() {
+    cv::namedWindow(PARAMETERS_WINDOW_NAME, cv::WINDOW_NORMAL);
+    cv::Mat panel(60, 520, CV_8UC3, PANEL_BG);
+    drawText(panel, "Ajuste os valores e clique em uma operacao.",
+             cv::Point(15, 35), 0.5, TEXT);
+    cv::imshow(PARAMETERS_WINDOW_NAME, panel);
     for (const auto& parameter : TRACKBAR_PARAMETERS) {
-        cv::createTrackbar(parameter.name, WINDOW_NAME, nullptr, parameter.maximum);
+        cv::createTrackbar(parameter.name, PARAMETERS_WINDOW_NAME, nullptr, parameter.maximum);
     }
     resetParameters();
+    cv::resizeWindow(PARAMETERS_WINDOW_NAME, 520, 100);
 }
 
 } // namespace
@@ -941,7 +948,8 @@ namespace pdi {
 int runFrontend() {
     AppState state;
 
-    cv::namedWindow(WINDOW_NAME, cv::WINDOW_AUTOSIZE);
+    cv::namedWindow(WINDOW_NAME, cv::WINDOW_NORMAL);
+    cv::resizeWindow(WINDOW_NAME, 1100, 587);
     createTrackbars();
     cv::setMouseCallback(WINDOW_NAME, handleMouse, &state);
 

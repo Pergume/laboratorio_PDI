@@ -74,7 +74,7 @@ A versao `h4 saturado` preserva exatamente o comportamento do teste anterior: co
 
 ## Sliders
 
-Os sliders ficam no topo da janela e so afetam as operacoes correspondentes:
+Os oito sliders ficam na janela separada `Parametros - Laboratorio PDI`. A janela principal pode ser redimensionada para caber na tela. Os controles e so afetam as operacoes correspondentes:
 
 - `Limiar`: 0..255
 - `Gamma x100`: ex. 50 = gamma 0.50, 200 = gamma 2.00
