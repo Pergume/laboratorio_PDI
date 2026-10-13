@@ -113,3 +113,11 @@ FRONTEND.md
 ```
 
 O `main.cpp` agora apenas inicializa `pdi::runFrontend()`. Toda a logica dos algoritmos continua nos modulos anteriores.
+
+## Comparacao da mediana e estatisticas locais
+
+Ao executar a mediana, o painel esquerdo mostra a entrada com ruido sal e pimenta (probabilidade de 10% por pixel, metade preto e metade branco), e o direito mostra a filtragem dessa mesma entrada. A amostra de ruido permanece a mesma ao repetir a operacao e mudar a vizinhanca. A imagem com ruido tambem e salva como `ruido_<imagem>.png`.
+
+O contraste adaptativo mostra quatro paineis: original, resultado, media local e desvio padrao local. As estatisticas sao calculadas manualmente sobre a vizinhanca, recortada nas bordas, com variancia populacional `E[r²] - E[r]²`. O realce usa `s = m + c * (desvio_global / max(desvio_local, 1)) * (r - m)`, com arredondamento e saturacao em [0,255]. O piso de 1 estabiliza regioes com pouca variacao; regioes constantes permanecem constantes. O desvio global usa todos os pixels da imagem de entrada.
+
+Os mapas usam a escala de intensidade 0..255, sem normalizacao individual, e sao salvos como `media_local_<imagem>.png` e `desvio_local_<imagem>.png`. Os calculos preservam precisao double; somente os previews e os PNGs sao arredondados para 8 bits. O controle C multiplica agora o ganho relativo entre os desvios global e local.

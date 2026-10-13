@@ -138,6 +138,8 @@ struct AppState {
     cv::Mat imageA;
     cv::Mat imageB;
     cv::Mat result;
+    cv::Mat noisyImage;
+    pdi::LocalStatistics localStatistics;
 
     std::string resultTitle{"Selecione uma operacao"};
     std::string status{"Interface pronta. Ajuste os sliders e clique em uma operacao."};
@@ -441,6 +443,8 @@ void reloadImages(AppState& state) {
     state.imageA = pdi::loadGrayscale8Bit(state.images[state.imageAIndex].path);
     state.imageB = pdi::loadGrayscale8Bit(state.images[state.imageBIndex].path);
     state.result.release();
+    state.noisyImage.release();
+    state.localStatistics = {};
     state.resultTitle = "Selecione uma operacao";
     state.operation = Operation::None;
     state.status = "Imagem selecionada: " + state.images[state.imageAIndex].label;
@@ -544,15 +548,29 @@ cv::Mat executeOperation(AppState& state, Operation op, std::string& details) {
             details = "c = " + std::to_string(adaptiveC) +
                       ", vizinhanca = " + std::to_string(neighborhood) + "x" +
                       std::to_string(neighborhood);
-            return pdi::adaptiveContrast(state.imageA, adaptiveC, neighborhood);
+            details += "; s = m + c * (desvio global / max(desvio local, 1)) * (r - m)";
+            return pdi::adaptiveContrast(state.imageA, adaptiveC, neighborhood, &state.localStatistics);
         case Operation::Mean:
             details = "Vizinhanca = " + std::to_string(neighborhood) + "x" +
                       std::to_string(neighborhood);
             return pdi::meanFilter(state.imageA, neighborhood);
-        case Operation::Median:
-            details = "Vizinhanca = " + std::to_string(neighborhood) + "x" +
+        case Operation::Median: {
+            if (state.noisyImage.empty()) {
+                state.noisyImage = state.imageA.clone();
+                cv::RNG random(42); // Mesma entrada ao comparar diferentes vizinhancas.
+                for (int row = 0; row < state.noisyImage.rows; ++row) {
+                    auto* pixels = state.noisyImage.ptr<unsigned char>(row);
+                    for (int col = 0; col < state.noisyImage.cols; ++col) {
+                        const double sample = random.uniform(0.0, 1.0);
+                        if (sample < 0.05) pixels[col] = 0;
+                        else if (sample < 0.10) pixels[col] = 255;
+                    }
+                }
+            }
+            details = "Ruido sal e pimenta: 10%; Vizinhanca = " + std::to_string(neighborhood) + "x" +
                       std::to_string(neighborhood);
-            return pdi::medianFilter(state.imageA, neighborhood);
+            return pdi::medianFilter(state.noisyImage, neighborhood);
+        }
         case Operation::GenericConvolution:
             details = "Mascara [-1 -1 -1; -1 9 -1; -1 -1 -1], borda Replicate";
             return pdi::convolve(
@@ -661,6 +679,16 @@ void saveCurrentResult(AppState& state) {
         selectedStem(state) + ".png";
 
     pdi::saveImage(path, state.result);
+    if (state.operation == Operation::Median) {
+        pdi::saveImage(std::string(INTERFACE_OUTPUT) + "ruido_" + selectedStem(state) + ".png", state.noisyImage);
+    }
+    if (state.operation == Operation::AdaptiveContrast) {
+        cv::Mat meanPreview, deviationPreview;
+        state.localStatistics.mean.convertTo(meanPreview, CV_8U);
+        state.localStatistics.standardDeviation.convertTo(deviationPreview, CV_8U);
+        pdi::saveImage(std::string(INTERFACE_OUTPUT) + "media_local_" + selectedStem(state) + ".png", meanPreview);
+        pdi::saveImage(std::string(INTERFACE_OUTPUT) + "desvio_local_" + selectedStem(state) + ".png", deviationPreview);
+    }
     state.status = "Executado e salvo em: " + path;
     state.statusIsError = false;
 }
@@ -798,8 +826,10 @@ void render(AppState& state) {
         ButtonAction::Exit
     );
 
-    const cv::Rect originalRect(410, 105, 500, 480);
-    const cv::Rect resultRect(950, 105, 500, 480);
+    const bool adaptive = state.operation == Operation::AdaptiveContrast;
+    const bool median = state.operation == Operation::Median;
+    const cv::Rect originalRect(410, 105, 500, adaptive ? 220 : 480);
+    const cv::Rect resultRect(950, 105, 500, adaptive ? 220 : 480);
 
     cv::rectangle(canvas, originalRect, CARD_BG, cv::FILLED);
     cv::rectangle(canvas, originalRect, BORDER, 1);
@@ -808,7 +838,7 @@ void render(AppState& state) {
 
     drawText(
         canvas,
-        "Original - " + state.images[state.imageAIndex].label,
+        std::string(median ? "Com ruido (sal e pimenta 10%) - " : "Original - ") + state.images[state.imageAIndex].label,
         cv::Point(originalRect.x, 85),
         0.55,
         TEXT,
@@ -824,7 +854,7 @@ void render(AppState& state) {
     );
 
     const cv::Mat originalPreview = previewImage(
-        state.imageA,
+        median ? state.noisyImage : state.imageA,
         cv::Size(originalRect.width - 20, originalRect.height - 20)
     );
     originalPreview.copyTo(
@@ -849,6 +879,18 @@ void render(AppState& state) {
             resultPreview.rows
         ))
     );
+
+    if (adaptive) {
+        const std::array<cv::Mat, 2> maps{state.localStatistics.mean, state.localStatistics.standardDeviation};
+        const std::array<std::string, 2> titles{"Media local (0..255)", "Desvio padrao local (0..255)"};
+        for (int index = 0; index < 2; ++index) {
+            const int x = index == 0 ? 410 : 950;
+            drawText(canvas, titles[index], cv::Point(x, 355), 0.55);
+            cv::Mat display;
+            maps[index].convertTo(display, CV_8U);
+            previewImage(display, cv::Size(480, 200)).copyTo(canvas(cv::Rect(x + 10, 375, 480, 200)));
+        }
+    }
 
     addButton(
         state,

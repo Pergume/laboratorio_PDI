@@ -4,6 +4,7 @@
 #include <cmath>
 #include <stdexcept>
 #include <string>
+#include <utility>
 
 namespace {
 
@@ -55,7 +56,7 @@ int lastUsedIntensity(const pdi::Histogram& histogram) {
 }
 
 void validateAdaptiveContrastParameters(double c, int neighborhoodSize) {
-    if (c < 0.0) {
+    if (!std::isfinite(c) || c < 0.0) {
         throw std::invalid_argument(
             "adaptiveContrast: a constante c deve ser maior ou igual a zero."
         );
@@ -68,7 +69,7 @@ void validateAdaptiveContrastParameters(double c, int neighborhoodSize) {
     }
 }
 
-double localMean(
+std::pair<double, double> localStatistics(
     const cv::Mat& image,
     int centerRow,
     int centerCol,
@@ -80,18 +81,23 @@ double localMean(
     const int lastCol = std::min(image.cols - 1, centerCol + radius);
 
     unsigned long long sum = 0;
+    unsigned long long squaredSum = 0;
     unsigned long long count = 0;
 
     for (int row = firstRow; row <= lastRow; ++row) {
         const unsigned char* inputRow = image.ptr<unsigned char>(row);
 
         for (int col = firstCol; col <= lastCol; ++col) {
-            sum += inputRow[col];
+            const unsigned int value = inputRow[col];
+            sum += value;
+            squaredSum += value * value;
             ++count;
         }
     }
 
-    return static_cast<double>(sum) / static_cast<double>(count);
+    const double mean = static_cast<double>(sum) / count;
+    const double variance = std::max(0.0, static_cast<double>(squaredSum) / count - mean * mean);
+    return {mean, std::sqrt(variance)};
 }
 
 } // namespace
@@ -205,30 +211,47 @@ cv::Mat histogramEqualization(const cv::Mat& image) {
 cv::Mat adaptiveContrast(
     const cv::Mat& image,
     double c,
-    int neighborhoodSize
+    int neighborhoodSize,
+    LocalStatistics* statistics
 ) {
     validateInput(image, "adaptiveContrast");
     validateAdaptiveContrastParameters(c, neighborhoodSize);
 
     cv::Mat result(image.rows, image.cols, CV_8UC1);
     const int radius = neighborhoodSize / 2;
+    const double globalDeviation = localStatistics(
+        image, 0, 0, std::max(image.rows, image.cols)
+    ).second;
+    LocalStatistics maps;
+    if (statistics != nullptr) {
+        maps.mean.create(image.size(), CV_64FC1);
+        maps.standardDeviation.create(image.size(), CV_64FC1);
+    }
 
     for (int row = 0; row < image.rows; ++row) {
         const unsigned char* inputRow = image.ptr<unsigned char>(row);
         unsigned char* outputRow = result.ptr<unsigned char>(row);
 
         for (int col = 0; col < image.cols; ++col) {
-            const double mean = localMean(image, row, col, radius);
+            const auto [mean, deviation] = localStatistics(image, row, col, radius);
+            if (statistics != nullptr) {
+                maps.mean.at<double>(row, col) = mean;
+                maps.standardDeviation.at<double>(row, col) = deviation;
+            }
             const double r = static_cast<double>(inputRow[col]);
 
-            // Realce de contraste local:
-            // s = media_local + c * (r - media_local)
-            const double s = mean + c * (r - mean);
+            // Ganho relativo ao desvio global; piso de 1 evita divisao por zero.
+            // Vizinhancas constantes preservam a intensidade original.
+            const double gain = c * globalDeviation / std::max(deviation, 1.0);
+            const double s = mean + gain * (r - mean);
 
             outputRow[col] = clampToByte(s);
         }
     }
 
+    if (statistics != nullptr) {
+        *statistics = std::move(maps);
+    }
     return result;
 }
 
