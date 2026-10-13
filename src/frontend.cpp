@@ -126,7 +126,8 @@ struct AppState {
         {"input.tif", "assets/input/input.tif"},
         {"barbara.tif", "assets/input/barbara.tif"},
         {"textura.jpg", "assets/input/textura.jpg"},
-        {"nequinha.jpeg", "assets/input/nequinha.jpeg"}
+        {"nequinha.jpeg", "assets/input/nequinha.jpeg"},
+        {"mell.jpeg", "assets/input/mell.jpeg"}
     };
 
     int imageAIndex{0};
