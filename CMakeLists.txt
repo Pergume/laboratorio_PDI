@@ -7,14 +7,16 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-find_package(OpenCV 4 REQUIRED COMPONENTS core imgcodecs)
+find_package(OpenCV 4 REQUIRED COMPONENTS core imgcodecs highgui imgproc)
 
 add_executable(laboratorio_PDI
     src/main.cpp
+    src/frontend.cpp
     src/image_io.cpp
     src/intensity.cpp
     src/histogram.cpp
     src/convolution.cpp
+    src/convolution_tests.cpp
     src/spatial_filters.cpp
     src/edge_detection.cpp
     src/sharpening.cpp

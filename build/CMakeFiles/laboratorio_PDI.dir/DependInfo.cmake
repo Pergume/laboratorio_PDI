@@ -9,8 +9,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/convolution.cpp" "CMakeFiles/laboratorio_PDI.dir/src/convolution.cpp.o" "gcc" "CMakeFiles/laboratorio_PDI.dir/src/convolution.cpp.o.d"
+  "/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/convolution_tests.cpp" "CMakeFiles/laboratorio_PDI.dir/src/convolution_tests.cpp.o" "gcc" "CMakeFiles/laboratorio_PDI.dir/src/convolution_tests.cpp.o.d"
   "/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/dissolve.cpp" "CMakeFiles/laboratorio_PDI.dir/src/dissolve.cpp.o" "gcc" "CMakeFiles/laboratorio_PDI.dir/src/dissolve.cpp.o.d"
   "/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/edge_detection.cpp" "CMakeFiles/laboratorio_PDI.dir/src/edge_detection.cpp.o" "gcc" "CMakeFiles/laboratorio_PDI.dir/src/edge_detection.cpp.o.d"
+  "/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/frontend.cpp" "CMakeFiles/laboratorio_PDI.dir/src/frontend.cpp.o" "gcc" "CMakeFiles/laboratorio_PDI.dir/src/frontend.cpp.o.d"
   "/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/histogram.cpp" "CMakeFiles/laboratorio_PDI.dir/src/histogram.cpp.o" "gcc" "CMakeFiles/laboratorio_PDI.dir/src/histogram.cpp.o.d"
   "/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/image_io.cpp" "CMakeFiles/laboratorio_PDI.dir/src/image_io.cpp.o" "gcc" "CMakeFiles/laboratorio_PDI.dir/src/image_io.cpp.o.d"
   "/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/intensity.cpp" "CMakeFiles/laboratorio_PDI.dir/src/intensity.cpp.o" "gcc" "CMakeFiles/laboratorio_PDI.dir/src/intensity.cpp.o.d"

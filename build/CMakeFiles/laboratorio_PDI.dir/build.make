@@ -83,10 +83,24 @@ CMakeFiles/laboratorio_PDI.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/laboratorio_PDI.dir/src/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/main.cpp -o CMakeFiles/laboratorio_PDI.dir/src/main.cpp.s
 
+CMakeFiles/laboratorio_PDI.dir/src/frontend.cpp.o: CMakeFiles/laboratorio_PDI.dir/flags.make
+CMakeFiles/laboratorio_PDI.dir/src/frontend.cpp.o: /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/frontend.cpp
+CMakeFiles/laboratorio_PDI.dir/src/frontend.cpp.o: CMakeFiles/laboratorio_PDI.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/laboratorio_PDI.dir/src/frontend.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/laboratorio_PDI.dir/src/frontend.cpp.o -MF CMakeFiles/laboratorio_PDI.dir/src/frontend.cpp.o.d -o CMakeFiles/laboratorio_PDI.dir/src/frontend.cpp.o -c /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/frontend.cpp
+
+CMakeFiles/laboratorio_PDI.dir/src/frontend.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/laboratorio_PDI.dir/src/frontend.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/frontend.cpp > CMakeFiles/laboratorio_PDI.dir/src/frontend.cpp.i
+
+CMakeFiles/laboratorio_PDI.dir/src/frontend.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/laboratorio_PDI.dir/src/frontend.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/frontend.cpp -o CMakeFiles/laboratorio_PDI.dir/src/frontend.cpp.s
+
 CMakeFiles/laboratorio_PDI.dir/src/image_io.cpp.o: CMakeFiles/laboratorio_PDI.dir/flags.make
 CMakeFiles/laboratorio_PDI.dir/src/image_io.cpp.o: /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/image_io.cpp
 CMakeFiles/laboratorio_PDI.dir/src/image_io.cpp.o: CMakeFiles/laboratorio_PDI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/laboratorio_PDI.dir/src/image_io.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/laboratorio_PDI.dir/src/image_io.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/laboratorio_PDI.dir/src/image_io.cpp.o -MF CMakeFiles/laboratorio_PDI.dir/src/image_io.cpp.o.d -o CMakeFiles/laboratorio_PDI.dir/src/image_io.cpp.o -c /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/image_io.cpp
 
 CMakeFiles/laboratorio_PDI.dir/src/image_io.cpp.i: cmake_force
@@ -100,7 +114,7 @@ CMakeFiles/laboratorio_PDI.dir/src/image_io.cpp.s: cmake_force
 CMakeFiles/laboratorio_PDI.dir/src/intensity.cpp.o: CMakeFiles/laboratorio_PDI.dir/flags.make
 CMakeFiles/laboratorio_PDI.dir/src/intensity.cpp.o: /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/intensity.cpp
 CMakeFiles/laboratorio_PDI.dir/src/intensity.cpp.o: CMakeFiles/laboratorio_PDI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/laboratorio_PDI.dir/src/intensity.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/laboratorio_PDI.dir/src/intensity.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/laboratorio_PDI.dir/src/intensity.cpp.o -MF CMakeFiles/laboratorio_PDI.dir/src/intensity.cpp.o.d -o CMakeFiles/laboratorio_PDI.dir/src/intensity.cpp.o -c /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/intensity.cpp
 
 CMakeFiles/laboratorio_PDI.dir/src/intensity.cpp.i: cmake_force
@@ -114,7 +128,7 @@ CMakeFiles/laboratorio_PDI.dir/src/intensity.cpp.s: cmake_force
 CMakeFiles/laboratorio_PDI.dir/src/histogram.cpp.o: CMakeFiles/laboratorio_PDI.dir/flags.make
 CMakeFiles/laboratorio_PDI.dir/src/histogram.cpp.o: /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/histogram.cpp
 CMakeFiles/laboratorio_PDI.dir/src/histogram.cpp.o: CMakeFiles/laboratorio_PDI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/laboratorio_PDI.dir/src/histogram.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/laboratorio_PDI.dir/src/histogram.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/laboratorio_PDI.dir/src/histogram.cpp.o -MF CMakeFiles/laboratorio_PDI.dir/src/histogram.cpp.o.d -o CMakeFiles/laboratorio_PDI.dir/src/histogram.cpp.o -c /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/histogram.cpp
 
 CMakeFiles/laboratorio_PDI.dir/src/histogram.cpp.i: cmake_force
@@ -128,7 +142,7 @@ CMakeFiles/laboratorio_PDI.dir/src/histogram.cpp.s: cmake_force
 CMakeFiles/laboratorio_PDI.dir/src/convolution.cpp.o: CMakeFiles/laboratorio_PDI.dir/flags.make
 CMakeFiles/laboratorio_PDI.dir/src/convolution.cpp.o: /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/convolution.cpp
 CMakeFiles/laboratorio_PDI.dir/src/convolution.cpp.o: CMakeFiles/laboratorio_PDI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/laboratorio_PDI.dir/src/convolution.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/laboratorio_PDI.dir/src/convolution.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/laboratorio_PDI.dir/src/convolution.cpp.o -MF CMakeFiles/laboratorio_PDI.dir/src/convolution.cpp.o.d -o CMakeFiles/laboratorio_PDI.dir/src/convolution.cpp.o -c /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/convolution.cpp
 
 CMakeFiles/laboratorio_PDI.dir/src/convolution.cpp.i: cmake_force
@@ -139,10 +153,24 @@ CMakeFiles/laboratorio_PDI.dir/src/convolution.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/laboratorio_PDI.dir/src/convolution.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/convolution.cpp -o CMakeFiles/laboratorio_PDI.dir/src/convolution.cpp.s
 
+CMakeFiles/laboratorio_PDI.dir/src/convolution_tests.cpp.o: CMakeFiles/laboratorio_PDI.dir/flags.make
+CMakeFiles/laboratorio_PDI.dir/src/convolution_tests.cpp.o: /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/convolution_tests.cpp
+CMakeFiles/laboratorio_PDI.dir/src/convolution_tests.cpp.o: CMakeFiles/laboratorio_PDI.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/laboratorio_PDI.dir/src/convolution_tests.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/laboratorio_PDI.dir/src/convolution_tests.cpp.o -MF CMakeFiles/laboratorio_PDI.dir/src/convolution_tests.cpp.o.d -o CMakeFiles/laboratorio_PDI.dir/src/convolution_tests.cpp.o -c /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/convolution_tests.cpp
+
+CMakeFiles/laboratorio_PDI.dir/src/convolution_tests.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/laboratorio_PDI.dir/src/convolution_tests.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/convolution_tests.cpp > CMakeFiles/laboratorio_PDI.dir/src/convolution_tests.cpp.i
+
+CMakeFiles/laboratorio_PDI.dir/src/convolution_tests.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/laboratorio_PDI.dir/src/convolution_tests.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/convolution_tests.cpp -o CMakeFiles/laboratorio_PDI.dir/src/convolution_tests.cpp.s
+
 CMakeFiles/laboratorio_PDI.dir/src/spatial_filters.cpp.o: CMakeFiles/laboratorio_PDI.dir/flags.make
 CMakeFiles/laboratorio_PDI.dir/src/spatial_filters.cpp.o: /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/spatial_filters.cpp
 CMakeFiles/laboratorio_PDI.dir/src/spatial_filters.cpp.o: CMakeFiles/laboratorio_PDI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/laboratorio_PDI.dir/src/spatial_filters.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/laboratorio_PDI.dir/src/spatial_filters.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/laboratorio_PDI.dir/src/spatial_filters.cpp.o -MF CMakeFiles/laboratorio_PDI.dir/src/spatial_filters.cpp.o.d -o CMakeFiles/laboratorio_PDI.dir/src/spatial_filters.cpp.o -c /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/spatial_filters.cpp
 
 CMakeFiles/laboratorio_PDI.dir/src/spatial_filters.cpp.i: cmake_force
@@ -156,7 +184,7 @@ CMakeFiles/laboratorio_PDI.dir/src/spatial_filters.cpp.s: cmake_force
 CMakeFiles/laboratorio_PDI.dir/src/edge_detection.cpp.o: CMakeFiles/laboratorio_PDI.dir/flags.make
 CMakeFiles/laboratorio_PDI.dir/src/edge_detection.cpp.o: /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/edge_detection.cpp
 CMakeFiles/laboratorio_PDI.dir/src/edge_detection.cpp.o: CMakeFiles/laboratorio_PDI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/laboratorio_PDI.dir/src/edge_detection.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/laboratorio_PDI.dir/src/edge_detection.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/laboratorio_PDI.dir/src/edge_detection.cpp.o -MF CMakeFiles/laboratorio_PDI.dir/src/edge_detection.cpp.o.d -o CMakeFiles/laboratorio_PDI.dir/src/edge_detection.cpp.o -c /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/edge_detection.cpp
 
 CMakeFiles/laboratorio_PDI.dir/src/edge_detection.cpp.i: cmake_force
@@ -170,7 +198,7 @@ CMakeFiles/laboratorio_PDI.dir/src/edge_detection.cpp.s: cmake_force
 CMakeFiles/laboratorio_PDI.dir/src/sharpening.cpp.o: CMakeFiles/laboratorio_PDI.dir/flags.make
 CMakeFiles/laboratorio_PDI.dir/src/sharpening.cpp.o: /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/sharpening.cpp
 CMakeFiles/laboratorio_PDI.dir/src/sharpening.cpp.o: CMakeFiles/laboratorio_PDI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/laboratorio_PDI.dir/src/sharpening.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/laboratorio_PDI.dir/src/sharpening.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/laboratorio_PDI.dir/src/sharpening.cpp.o -MF CMakeFiles/laboratorio_PDI.dir/src/sharpening.cpp.o.d -o CMakeFiles/laboratorio_PDI.dir/src/sharpening.cpp.o -c /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/sharpening.cpp
 
 CMakeFiles/laboratorio_PDI.dir/src/sharpening.cpp.i: cmake_force
@@ -184,7 +212,7 @@ CMakeFiles/laboratorio_PDI.dir/src/sharpening.cpp.s: cmake_force
 CMakeFiles/laboratorio_PDI.dir/src/dissolve.cpp.o: CMakeFiles/laboratorio_PDI.dir/flags.make
 CMakeFiles/laboratorio_PDI.dir/src/dissolve.cpp.o: /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/dissolve.cpp
 CMakeFiles/laboratorio_PDI.dir/src/dissolve.cpp.o: CMakeFiles/laboratorio_PDI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/laboratorio_PDI.dir/src/dissolve.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/laboratorio_PDI.dir/src/dissolve.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/laboratorio_PDI.dir/src/dissolve.cpp.o -MF CMakeFiles/laboratorio_PDI.dir/src/dissolve.cpp.o.d -o CMakeFiles/laboratorio_PDI.dir/src/dissolve.cpp.o -c /home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/src/dissolve.cpp
 
 CMakeFiles/laboratorio_PDI.dir/src/dissolve.cpp.i: cmake_force
@@ -198,10 +226,12 @@ CMakeFiles/laboratorio_PDI.dir/src/dissolve.cpp.s: cmake_force
 # Object files for target laboratorio_PDI
 laboratorio_PDI_OBJECTS = \
 "CMakeFiles/laboratorio_PDI.dir/src/main.cpp.o" \
+"CMakeFiles/laboratorio_PDI.dir/src/frontend.cpp.o" \
 "CMakeFiles/laboratorio_PDI.dir/src/image_io.cpp.o" \
 "CMakeFiles/laboratorio_PDI.dir/src/intensity.cpp.o" \
 "CMakeFiles/laboratorio_PDI.dir/src/histogram.cpp.o" \
 "CMakeFiles/laboratorio_PDI.dir/src/convolution.cpp.o" \
+"CMakeFiles/laboratorio_PDI.dir/src/convolution_tests.cpp.o" \
 "CMakeFiles/laboratorio_PDI.dir/src/spatial_filters.cpp.o" \
 "CMakeFiles/laboratorio_PDI.dir/src/edge_detection.cpp.o" \
 "CMakeFiles/laboratorio_PDI.dir/src/sharpening.cpp.o" \
@@ -211,20 +241,24 @@ laboratorio_PDI_OBJECTS = \
 laboratorio_PDI_EXTERNAL_OBJECTS =
 
 laboratorio_PDI: CMakeFiles/laboratorio_PDI.dir/src/main.cpp.o
+laboratorio_PDI: CMakeFiles/laboratorio_PDI.dir/src/frontend.cpp.o
 laboratorio_PDI: CMakeFiles/laboratorio_PDI.dir/src/image_io.cpp.o
 laboratorio_PDI: CMakeFiles/laboratorio_PDI.dir/src/intensity.cpp.o
 laboratorio_PDI: CMakeFiles/laboratorio_PDI.dir/src/histogram.cpp.o
 laboratorio_PDI: CMakeFiles/laboratorio_PDI.dir/src/convolution.cpp.o
+laboratorio_PDI: CMakeFiles/laboratorio_PDI.dir/src/convolution_tests.cpp.o
 laboratorio_PDI: CMakeFiles/laboratorio_PDI.dir/src/spatial_filters.cpp.o
 laboratorio_PDI: CMakeFiles/laboratorio_PDI.dir/src/edge_detection.cpp.o
 laboratorio_PDI: CMakeFiles/laboratorio_PDI.dir/src/sharpening.cpp.o
 laboratorio_PDI: CMakeFiles/laboratorio_PDI.dir/src/dissolve.cpp.o
 laboratorio_PDI: CMakeFiles/laboratorio_PDI.dir/build.make
+laboratorio_PDI: /usr/lib/x86_64-linux-gnu/libopencv_highgui.so.4.6.0
+laboratorio_PDI: /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.6.0
 laboratorio_PDI: /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.4.6.0
 laboratorio_PDI: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.4.6.0
 laboratorio_PDI: /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.6.0
 laboratorio_PDI: CMakeFiles/laboratorio_PDI.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable laboratorio_PDI"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/pedro/Documentos/codigos/PDI_projeto1/laboratorio_PDI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable laboratorio_PDI"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/laboratorio_PDI.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

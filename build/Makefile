@@ -153,6 +153,30 @@ src/convolution.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/laboratorio_PDI.dir/build.make CMakeFiles/laboratorio_PDI.dir/src/convolution.cpp.s
 .PHONY : src/convolution.cpp.s
 
+src/convolution_tests.o: src/convolution_tests.cpp.o
+.PHONY : src/convolution_tests.o
+
+# target to build an object file
+src/convolution_tests.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/laboratorio_PDI.dir/build.make CMakeFiles/laboratorio_PDI.dir/src/convolution_tests.cpp.o
+.PHONY : src/convolution_tests.cpp.o
+
+src/convolution_tests.i: src/convolution_tests.cpp.i
+.PHONY : src/convolution_tests.i
+
+# target to preprocess a source file
+src/convolution_tests.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/laboratorio_PDI.dir/build.make CMakeFiles/laboratorio_PDI.dir/src/convolution_tests.cpp.i
+.PHONY : src/convolution_tests.cpp.i
+
+src/convolution_tests.s: src/convolution_tests.cpp.s
+.PHONY : src/convolution_tests.s
+
+# target to generate assembly for a file
+src/convolution_tests.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/laboratorio_PDI.dir/build.make CMakeFiles/laboratorio_PDI.dir/src/convolution_tests.cpp.s
+.PHONY : src/convolution_tests.cpp.s
+
 src/dissolve.o: src/dissolve.cpp.o
 .PHONY : src/dissolve.o
 
@@ -200,6 +224,30 @@ src/edge_detection.s: src/edge_detection.cpp.s
 src/edge_detection.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/laboratorio_PDI.dir/build.make CMakeFiles/laboratorio_PDI.dir/src/edge_detection.cpp.s
 .PHONY : src/edge_detection.cpp.s
+
+src/frontend.o: src/frontend.cpp.o
+.PHONY : src/frontend.o
+
+# target to build an object file
+src/frontend.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/laboratorio_PDI.dir/build.make CMakeFiles/laboratorio_PDI.dir/src/frontend.cpp.o
+.PHONY : src/frontend.cpp.o
+
+src/frontend.i: src/frontend.cpp.i
+.PHONY : src/frontend.i
+
+# target to preprocess a source file
+src/frontend.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/laboratorio_PDI.dir/build.make CMakeFiles/laboratorio_PDI.dir/src/frontend.cpp.i
+.PHONY : src/frontend.cpp.i
+
+src/frontend.s: src/frontend.cpp.s
+.PHONY : src/frontend.s
+
+# target to generate assembly for a file
+src/frontend.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/laboratorio_PDI.dir/build.make CMakeFiles/laboratorio_PDI.dir/src/frontend.cpp.s
+.PHONY : src/frontend.cpp.s
 
 src/histogram.o: src/histogram.cpp.o
 .PHONY : src/histogram.o
@@ -357,12 +405,18 @@ help:
 	@echo "... src/convolution.o"
 	@echo "... src/convolution.i"
 	@echo "... src/convolution.s"
+	@echo "... src/convolution_tests.o"
+	@echo "... src/convolution_tests.i"
+	@echo "... src/convolution_tests.s"
 	@echo "... src/dissolve.o"
 	@echo "... src/dissolve.i"
 	@echo "... src/dissolve.s"
 	@echo "... src/edge_detection.o"
 	@echo "... src/edge_detection.i"
 	@echo "... src/edge_detection.s"
+	@echo "... src/frontend.o"
+	@echo "... src/frontend.i"
+	@echo "... src/frontend.s"
 	@echo "... src/histogram.o"
 	@echo "... src/histogram.i"
 	@echo "... src/histogram.s"
